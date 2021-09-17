@@ -73,7 +73,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtCore.QThread):
         print("4")
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.host = ipadd
-        self.port = 81
+        self.port = 121
         self.s.bind((self.host, self.port))
         self.s.listen(1)
         self.conn, self.addr = self.s.accept()

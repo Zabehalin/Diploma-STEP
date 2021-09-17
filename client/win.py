@@ -1,5 +1,4 @@
 import pyautogui
-
 import socket
 import base64
 import json
@@ -28,8 +27,7 @@ class VNCClient:
     def execute_handler(self):
         while True:
             responce = self.receive_json()
-            # if responce[0] == 'S':
-            #     result = "T"
+            
             if responce[0] == 'screen':
                 result = self.screen_handler()
             elif 'mouse' in responce[0]:

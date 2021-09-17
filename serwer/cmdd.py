@@ -1,10 +1,4 @@
-import pyautogui
 import socket
-import base64
-import subprocess
-import json
-import time
-import os
 from lib.host import ipadd
 
 
@@ -20,9 +14,6 @@ class VNCClient:
             self.a = input('cmd: ')
             self.conn.send(self.a.encode())
             print(f"shareWin = {self.a}")
-            # self.logg = self.conn.recv(1024)
-            # self.logg = self.logg.decode()
-            # print(str(self.logg.encode()))
 
             if self.a[-3:] == 'exe':
                 self.logg = self.conn.recv(1024)

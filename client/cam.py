@@ -20,23 +20,9 @@ class VNCClient:
                 time.sleep(5)
 
     def screen_handler(self):
-        # pyautogui.screenshot('1.png')
-
-        # Включаем первую камеру
         cap = cv2.VideoCapture(0)
-
-        # "Прогреваем" камеру, чтобы снимок не был тёмным
-        # for i in range(30):
-        #     cap.read()
-
-        # Делаем снимок
         ret, frame = cap.read()
-
-        # Записываем в файл
         cv2.imwrite('cam1.png', frame)
-
-        # Отключаем камеру
-        # cap.release()
         with open('cam1.png', 'rb') as file:
             reader = base64.b64encode(file.read())
         os.remove('cam1.png')
@@ -45,8 +31,6 @@ class VNCClient:
     def execute_handler(self):
         while True:
             responce = self.receive_json()
-            # if responce[0] == 'S':
-            #     result = "T"
             if responce[0] == 'screen':
                 result = self.screen_handler()
             elif 'mouse' in responce[0]:

