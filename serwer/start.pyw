@@ -110,7 +110,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtCore.QThread):
         self.a = 'win'
         self.conn.send(self.a.encode())
         print(f"shareWin = {self.a}")
-        subprocess.call('start wintrans.py', shell=True)
+        subprocess.call('start wintrans.pyw', shell=True)
 
         self.a = 'X'
         self.conn.send(self.a.encode())
@@ -120,7 +120,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow, QtCore.QThread):
         self.a = 'cam'
         self.conn.send(self.a.encode())
         print(f"shareWin = {self.a}")
-        subprocess.call('start camtrans.py', shell=True)
+        subprocess.call('start camtrans.pyw', shell=True)
 
         self.a = 'X'
         self.conn.send(self.a.encode())

